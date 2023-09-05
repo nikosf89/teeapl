@@ -48,12 +48,38 @@ const Paroxes = () => {
                         <div className="text-left text-lg ml-4 mr-2 bg-blue-100 px-6 py-4 rounded-lg shadow-md border-l-4 border-blue-500 mb-5">
                             <p className="text-gray-700 text-1xl font-semibold ">
                                 {data && data.attributes && (
-                                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                        {data.attributes.poso_efapax_paroxis}
+                                    <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        components={{
+                                            a: ({
+                                                node,
+                                                children,
+                                                ...props
+                                            }) => {
+                                                return (
+                                                    <span className="text-blue-600 font-bold underline hover:text-blue-700">
+                                                        <a
+                                                            href={props.href}
+                                                            target="_blank">
+                                                            <i class="fa-solid fa-user-xmark"></i>
+                                                            {children}
+                                                        </a>
+                                                    </span>
+                                                );
+                                            },
+                                        }}>
+                                        {data.attributes.poso_efapax_paroxis1}
                                     </ReactMarkdown>
                                 )}
                             </p>
                         </div>
+                    </div>
+                    <div className="text-lg text-left ml-4 mr-2 bg-blue-100 px-6 py-4 rounded-lg shadow-md border-l-4 border-blue-500 ">
+                        <p className="text-gray-700 text-1xl font-semibold  ">
+                            {data &&
+                                data.attributes &&
+                                data.attributes.poso_efapax_paroxis2}
+                        </p>
                     </div>
                 </div>
                 <div className="text-left mb-10">
@@ -65,14 +91,30 @@ const Paroxes = () => {
                         εφόσον συντρέχουν στο πρόσωπό του οι ακόλουθες
                         προϋποθέσεις:
                     </p>
-
-                    <div className="text-1xl  pl-6 mt-3 space-y-4 mb-10 ml-4 mr-2 bg-blue-100 px-6 py-4 rounded-lg shadow-md border-l-4 border-blue-500">
-                        {data && data.attributes && (
-                            <ReactMarkdown>
-                                {data.attributes.kritiria_efapax}
-                            </ReactMarkdown>
-                        )}
-                    </div>
+                    {data && data.attributes && (
+                        <ReactMarkdown
+                            components={{
+                                li: ({ node, children, ...props }) => {
+                                    return (
+                                        <li className="text-gray-700 text-left text-1xl font-semibold p-2">
+                                            <span class="material-icons text-blue-400">
+                                                check_circle
+                                            </span>
+                                            {children}
+                                        </li>
+                                    );
+                                },
+                                ul: ({ children }) => {
+                                    return (
+                                        <ul className="text-1xl  pl-6 mt-3 space-y-2 mb-10 ml-4 mr-2 bg-blue-100 px-6 py-4 rounded-lg shadow-md border-l-4 border-blue-500">
+                                            {children}
+                                        </ul>
+                                    );
+                                },
+                            }}>
+                            {data.attributes.kritiria_efapax}
+                        </ReactMarkdown>
+                    )}
                 </div>
                 <div className="text-left  mt-10">
                     <div className="mb-5">
@@ -108,7 +150,25 @@ const Paroxes = () => {
                                             })}
                                 </ul>
                                 {data && data.attributes && (
-                                    <ReactMarkdown>
+                                    <ReactMarkdown
+                                        components={{
+                                            a: ({
+                                                node,
+                                                children,
+                                                ...props
+                                            }) => {
+                                                return (
+                                                    <span className="text-blue-600 hover:text-blue-700 underline">
+                                                        <a
+                                                            href={props.href}
+                                                            target="_blank">
+                                                            <i class="fa-solid fa-circle-down"></i>
+                                                            {children}
+                                                        </a>
+                                                    </span>
+                                                );
+                                            },
+                                        }}>
                                         {data.attributes.paroxi_thanatou}
                                     </ReactMarkdown>
                                 )}
@@ -136,7 +196,25 @@ const Paroxes = () => {
                                             })}
                                 </ul>
                                 {data && data.attributes && (
-                                    <ReactMarkdown>
+                                    <ReactMarkdown
+                                        components={{
+                                            a: ({
+                                                node,
+                                                children,
+                                                ...props
+                                            }) => {
+                                                return (
+                                                    <span className="text-blue-600 hover:text-blue-700 underline">
+                                                        <a
+                                                            href={props.href}
+                                                            target="_blank">
+                                                            <i class="fa-solid fa-circle-down"></i>
+                                                            {children}
+                                                        </a>
+                                                    </span>
+                                                );
+                                            },
+                                        }}>
                                         {data.attributes.paroxi_perithalpsis}
                                     </ReactMarkdown>
                                 )}
@@ -164,7 +242,25 @@ const Paroxes = () => {
                                             })}
                                 </ul>
                                 {data && data.attributes && (
-                                    <ReactMarkdown>
+                                    <ReactMarkdown
+                                        components={{
+                                            a: ({
+                                                node,
+                                                children,
+                                                ...props
+                                            }) => {
+                                                return (
+                                                    <span className="text-blue-600 hover:text-blue-700 underline">
+                                                        <a
+                                                            href={props.href}
+                                                            target="_blank">
+                                                            <i class="fa-solid fa-circle-down"></i>
+                                                            {children}
+                                                        </a>
+                                                    </span>
+                                                );
+                                            },
+                                        }}>
                                         {data.attributes.paroxi_anapirias}
                                     </ReactMarkdown>
                                 )}
