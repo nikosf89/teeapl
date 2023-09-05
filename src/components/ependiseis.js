@@ -82,15 +82,30 @@ const Oikonomika = () => {
                     ΕΠΕΝΔΥΣΕΙΣ
                 </h1>
                 <div className="text-left text-lg px-6 py-4 rounded-lg shadow-md border-l-4 border-blue-500 mb-5">
-                    {data.length > 0 &&
-                    data[0].attributes &&
-                    data[0].attributes.Ependyseis ? (
-                      <ReactMarkdown>{data[0].attributes.Ependyseis}</ReactMarkdown>
-                    ) : (
-                        <p>Loading...</p>
-                    )}
-                </div>
-
+          <p>
+            {data[0] && data[0].attributes && data[0].attributes.Text1}
+          </p>
+        </div>
+        <div className="text-left text-lg px-6 py-4 rounded-lg shadow-md border-l-4 border-blue-500 mb-5">
+          <p>
+          {data[0] && data[0].attributes && data[0].attributes.Text2}
+          </p>
+        </div>
+        <div className="text-left text-lg px-6 py-4 rounded-lg shadow-md border-l-4 border-blue-500 mb-5">
+          <p>
+          {data[0] && data[0].attributes && data[0].attributes.Text3}
+          </p>
+        </div>
+        <div className="text-left text-lg px-6 py-4 rounded-lg shadow-md border-l-4 border-blue-500 mb-5">
+          <p>
+          {data[0] && data[0].attributes && data[0].attributes.Text4}
+          </p>
+        </div>
+        <div className="text-left text-lg  px-6 py-4 rounded-lg shadow-md border-l-4 border-blue-500 mb-5 ">
+          <p>
+          {data[0] && data[0].attributes && data[0].attributes.Text5}
+          </p>
+        </div>
                 <h1 className="text-center text-2xl underline font-bold text-custom-new-blue  mt-20">
                     ΤΕΑ Αστυνομικών-Πυροσβεστών-Λιμενικών Mικτό
                 </h1>
