@@ -1,48 +1,49 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 function BudgetsSection() {
   const [isFired, setIsFired] = useState(false);
-  const [data, setData] = useState([]);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:1337/api/proypologismoi"
-      );
-      setData(response.data.data);
-      console.log(response.data.data);
-    } catch (err) {
-      console.log("Error", err);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
+  /* useEffect(() => {
     if (isFired) {
-      try {
-        const fileUrl = data.attributes.PROIPOLOGISMOS2017; // URL to your PDF file
-        const link = document.createElement("a");
-        link.href = fileUrl;
-        link.download = "your-file-name.pdf"; // Set the desired file name
-        link.target = "_blank"; // Open the link in a new tab
-        link.style.display = "none"; // Hide the link
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        setIsFired(false);
-      } catch (err) {
-        console.log(err);
-      }
+      const fileContent = "..."; // Replace with your file content
+      const blob = new Blob([fileContent], {
+        type: "application/vnd.oasis.opendocument.spreadsheet",
+      });
+
+      // Create a URL for the blob
+      const url = URL.createObjectURL(blob);
+
+      // Create a link element and simulate a click event
+      const link = document.createElement("a");
+      link.href = url;
+      link.download =
+        "https://www.teaapl.gr/images/pdf/isologismoi/proypologismos%202017.pdf"; // Set the desired file name
+      link.click();
+
+      // Clean up the URL and link
+      URL.revokeObjectURL(url);
+      link.remove();
+      setIsFired(false);
     }
-  }, [isFired]);
+  }, [isFired]); */
+
+  const handleDownload = () => {
+    
+    const downloadLink = document.createElement('a');
+    downloadLink.href = process.env.PUBLIC_URL + '/proipologismos.pdf';  
+    downloadLink.download = 'ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ'; 
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    
+  };
 
   return (
     <div className="h-screen flex items-center justify-center py-2 md:py-12 bg-gray-100">
       <div className="max-w-full md:max-w-2xl mx-auto bg-white p-4 md:p-8 rounded-xl shadow-lg transition-transform transform hover:scale-105 duration-300">
         {/* Title */}
-        <h1 className="text-center text-xl md:text-2xl font-extrabold mb-4 md:mb-6 text-custom-new-blue border-b pb-2 md:pb-4">
+        <h1 className=" text-center text-xl md:text-2xl font-extrabold mb-4 md:mb-6 text-custom-new-blue border-b pb-2 md:pb-4">
           ΠΡΟΥΠΟΛΟΓΙΣΜΟΙ
         </h1>
 
@@ -81,7 +82,7 @@ function BudgetsSection() {
               Αναφορά προϋπολογισμών 2017
             </h2>
             <a
-              onClick={() => setIsFired(true)}
+              onClick={() => {setIsFired(true); handleDownload()}}
               className="cursor-pointer inline-block bg-gradient-to-r from-blue-500 to-blue-700 text-white text-xs md:text-sm uppercase tracking-wider px-4 md:px-6 py-2 rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105 hover:translate-y-1 hover:shadow-xl"
             >
               Download

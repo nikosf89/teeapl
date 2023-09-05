@@ -65,7 +65,6 @@ const Ergo = () => {
                 "http://localhost:1337/api/to-tameio-toy-ergoys?populate=*"
             );
             setData(response.data.data);
-            console.log(response.data.data);
         } catch (err) {
             console.log("Error", err);
         }
