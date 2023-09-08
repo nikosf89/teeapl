@@ -39,9 +39,9 @@ const Faq = () => {
   };
 
   return (
-    <div className="p-2 sm:p-4 md:p-8 bg-white mt-[-20] flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center text-custom-new-blue pt-16">
-        Συχνές Ερωτήσεις
+    <div className="p-2 sm:p-4 md:p-8 bg-white mt-[-20] flex flex-col items-center justify-center min-h-screen container max-w-3xl mx-auto">
+      <h1 style={{color: "#0582ca"}} className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center  pt-16">
+        ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ
       </h1>
       <button
         onClick={handleToggleAll}
@@ -60,7 +60,7 @@ const Faq = () => {
         </svg>
       </button>
 
-      <div className="w-full max-w-xl">
+      <div className="">
         {data.map((item, index) => (
           <div className="border-2 border-gray-300 rounded-lg mb-4" key={index}>
             <button

@@ -102,7 +102,6 @@ function App() {
 
     useEffect(() => {
         fetchMeetings();
-        console.log("My data is ", data);
     }, []);
 
     
@@ -138,8 +137,8 @@ function App() {
     return (
         <div className="bg-gray-100 min-h-screen ">
             <div className="text-center pt-4">
-                <h1 className="text-3xl text-blue-600 font-bold pt-16">
-                    Γενικές Συνελεύσεις
+                <h1 style={{color: "#0582ca"}} className="text-3xl  font-bold pt-20">
+                    ΓΕΝΙΚΕΣ ΣΥΝΕΛΕΥΣΕΙΣ
                 </h1>
             </div>
             <div className="mx-auto container" style={{ maxWidth: "80%" }}>

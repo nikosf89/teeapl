@@ -74,19 +74,10 @@ const Ergo = () => {
         fetchData();
     }, []);
 
-    const handleDownload = (path) => {
-        const downloadLink = document.createElement("a");
-        downloadLink.href = process.env.PUBLIC_URL + path;
-        downloadLink.download =
-            "ΕΥΧΑΡΙΣΤΗΡΙΑ ΕΠΙΣΤΟΛΗ (10-02-2015) ΓΙΑ ΚΑΡΑΜΠΕΛΙΑ.DOC";
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
-    };
 
     return (
         <div>
-            <h1 className="text-center text-2xl underline font-bold text-custom-new-blue mt-24 ">
+            <h1 style={{color: "#0582ca"}} className="text-center text-2xl underline font-bold text-custom-new-blue mt-24 ">
                 ΤΟ ΕΡΓΟ ΤΟΥ ΤΑΜΕΙΟΥ
             </h1>
             <div className="mx-auto bg-white  rounded-lg  p-4 grid lg:grid-cols-5 lg:gap-8 mb-10 mt-10 ">
