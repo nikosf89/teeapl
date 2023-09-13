@@ -665,7 +665,7 @@ function Navbar() {
                     {showSubMenuEnimerosi && (
                       <div className="absolute left-0 mt-2 w-56 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-white shadow-lg z-10">
                         <Link
-                          to="/teaapl/anakoinoseis"
+                          to="/teaapl/anakoinoseis/1"
                           className="block px-4 py-2 border-b text-xs font-light text-gray-700 hover:text-blue-500 hover:bg-gray-100"
                         >
                           ΑΝΑΚΟΙΝΩΣΕΙΣ

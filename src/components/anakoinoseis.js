@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { FcCalendar } from 'react-icons/fc';
+import { Link, useNavigate, useParams} from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
-import Anakoinosh from './anakoinosh';
+import PDF from "../images/icon.png";
+import ReactMarkdown from 'react-markdown';
 
 function App() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [showAnakoinosh, setShowAnakoinosh] = useState(false);
+  const { page }  = useParams(); // from react-router, this is the `:page` parameter defined on the route. 
+  const navigate = useNavigate();
+
+ 
 
   const itemsPerPage = 10;
 
@@ -30,14 +35,27 @@ function App() {
     fetchAnnouncements();
   }, []);
 
+  useEffect(() => {
+    // Update your component's state or fetch data based on the current page
+    // For example, you can update the currentPage state here
+    setCurrentPage(parseInt(page) - 1); // Subtract 1 to match the array index
+  }, [page]);
+
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const subset = data.slice(startIndex, endIndex);
 
+  
+
+  
+
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
+    navigate(`/teaapl/anakoinoseis/${selected+1}`)
     smoothScrollToTop();
   };
+
+  
 
   const smoothScrollToTop = () => {
     window.scrollTo({
@@ -46,20 +64,12 @@ function App() {
     });
   };
 
-  const anakoinoshContent = {
-    title: 'Custom Title',
-    text: 'This is custom text content.',
-  };
-
-  const handleShowAnakoinosh = () => {
-    setShowAnakoinosh(true);
-  };
 
   return (
     <div className="bg-gray-100 min-h-screen pt-4">
       <div className="mx-auto container" style={{ maxWidth: '80%' }}>
         <div className="text-center pt-20">
-          <h1 style={{ color: '#0582ca' }} className="text-3xl font-bold">
+          <h1 style={{ color: '#0582ca' }} className="text-3xl font-bold ">
             ΑΝΑΚΟΙΝΩΣΕΙΣ
           </h1>
         </div>
@@ -91,7 +101,7 @@ function App() {
                 forcePage={currentPage}
               />
             </div>
-            <div className=" container mt-5 mx-auto max-w-3xl">
+            <div className="container mt-5 mx-auto max-w-3xl">
               {subset.map((card) => (
                 <div
                   className="mb-5 block rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
@@ -101,18 +111,41 @@ function App() {
                     <h5 className="mb-2 lg:text-2xl font-bold leading-tight text-neutral-800 dark:text-neutral-50">
                       {card.attributes.Title}
                     </h5>
-                    <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                      {card.attributes.summary}
-                    </p>
-                    <button
-                      type="button"
-                      onClick={handleShowAnakoinosh}
-                      className="inline-block rounded-full bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white "
-                      data-te-ripple-init
-                      data-te-ripple-color="light"
-                    >
-                      Περισσότερα
-                    </button>
+
+                    <div className="mb-4 text-base text-left text-neutral-600 dark:text-neutral-200">
+                      {card && card.attributes && (
+                        <ReactMarkdown
+                          components={{
+                            a: ({ node, children, ...props }) => (
+                              <div className='flex justify-center'>
+                                <a className="no-underline  text-blue-600 hover:text-blue-700 underline mt-5 " href={props.href} target="_blank">
+                                  <span>
+                                    {children}
+                                    <img className='inline' width={25} src={PDF} alt="" />
+                                  </span>
+                              </a>
+                              </div>                      
+                            ),
+                          }}
+                        >
+                          {card.attributes.summary}
+                        </ReactMarkdown>
+                      )}
+                    </div>
+
+                    <div>
+                      {card && card.attributes && card.attributes.Title && card.attributes.announcement && card.attributes.has_announcement && (
+                        <Link to={`/announcement/${card.id}`}
+                        state={{ announcementData: { id: card.id, title: card.attributes.Title, announcement: card.attributes.announcement },
+                        }}>
+                          <button  className=" text-blue-600 hover:text-blue-700 font-bold">
+                            Περισσότερα
+                          </button>
+                        </Link>
+                        
+                        )
+                      }
+                    </div>
                   </div>
                   <div className="border-t-2 border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50">
                     <span className="flex justify-center items-center">
@@ -125,7 +158,6 @@ function App() {
                 </div>
               ))}
             </div>
-            {/* {showAnakoinosh && <Anakoinosh {...anakoinoshContent} />} */}
             <div className="py-4">
               <div className={`flex justify-center pt-6`}>
                 <ReactPaginate
