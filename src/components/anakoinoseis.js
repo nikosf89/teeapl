@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FcCalendar } from 'react-icons/fc';
-import { Link, useNavigate, useParams} from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 import PDF from "../images/icon.png";
@@ -11,10 +11,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
-  const { page }  = useParams(); // from react-router, this is the `:page` parameter defined on the route. 
+  const { page } = useParams(); // from react-router, this is the `:page` parameter defined on the route.
   const navigate = useNavigate();
-
- 
 
   const itemsPerPage = 10;
 
@@ -36,8 +34,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Update your component's state or fetch data based on the current page
-    // For example, you can update the currentPage state here
     setCurrentPage(parseInt(page) - 1); // Subtract 1 to match the array index
   }, [page]);
 
@@ -45,17 +41,11 @@ function App() {
   const endIndex = startIndex + itemsPerPage;
   const subset = data.slice(startIndex, endIndex);
 
-  
-
-  
-
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
-    navigate(`/teaapl/anakoinoseis/${selected+1}`)
+    navigate(`/teaapl/anakoinoseis/${selected + 1}`);
     smoothScrollToTop();
   };
-
-  
 
   const smoothScrollToTop = () => {
     window.scrollTo({
@@ -64,14 +54,16 @@ function App() {
     });
   };
 
-
   return (
     <div className="bg-gray-100 min-h-screen pt-4">
       <div className="mx-auto container" style={{ maxWidth: '80%' }}>
-        <div className="text-center pt-20">
-          <h1 style={{ color: '#0582ca' }} className="text-3xl font-bold ">
-            ΑΝΑΚΟΙΝΩΣΕΙΣ
-          </h1>
+        {/* Fixed header */}
+        <div className="sticky top-0 bg-gray-100 z-10">
+          <div className="text-center pt-20">
+            <h1 style={{ color: '#0582ca' }} className="text-3xl font-bold">
+              ΑΝΑΚΟΙΝΩΣΕΙΣ
+            </h1>
+          </div>
         </div>
         {loading ? (
           <div className="text-center pt-4">
@@ -123,7 +115,7 @@ function App() {
                                     {children}
                                     <img className='inline' width={25} src={PDF} alt="" />
                                   </span>
-                              </a>
+                                </a>
                               </div>                      
                             ),
                           }}
@@ -142,9 +134,7 @@ function App() {
                             Περισσότερα
                           </button>
                         </Link>
-                        
-                        )
-                      }
+                      )}
                     </div>
                   </div>
                   <div className="border-t-2 border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50">
