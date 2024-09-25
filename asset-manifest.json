@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/teaapl/static/css/main.40157b89.css",
+    "main.js": "/teaapl/static/js/main.04506873.js",
+    "static/js/787.94f13d48.chunk.js": "/teaapl/static/js/787.94f13d48.chunk.js",
+    "static/media/concept-save-money.jpg": "/teaapl/static/media/concept-save-money.3a8f2de985fd69992724.jpg",
+    "static/media/saving_from_phone.jpg": "/teaapl/static/media/saving_from_phone.1b8751ee9e5c809e92c6.jpg",
+    "static/media/redMark.jpg": "/teaapl/static/media/redMark.309d36e697b8f94beeb5.jpg",
+    "static/media/colorful-business.jpg": "/teaapl/static/media/colorful-business.1573d5e9ecdc3a9b96c6.jpg",
+    "static/media/closed.jpg": "/teaapl/static/media/closed.86da1a7f7f6997a845f8.jpg",
+    "static/media/earth.gif": "/teaapl/static/media/earth.c2f7a0c47f02ecb67b6c.gif",
+    "static/media/phone.gif": "/teaapl/static/media/phone.92799eed16279fb10f6b.gif",
+    "static/media/search.gif": "/teaapl/static/media/search.5ebf5e493fb068fcb892.gif",
+    "static/media/clock.gif": "/teaapl/static/media/clock.2600347a01f7de8ff705.gif",
+    "static/media/doc.png": "/teaapl/static/media/doc.b756b42a13bcb1657e62.png",
+    "static/media/amoibaio_kefalaio.png": "/teaapl/static/media/amoibaio_kefalaio.165de863c5bc7ec4b5c1.png",
+    "static/media/log_in.png": "/teaapl/static/media/log_in.9d382cee9b510d476ef9.png",
+    "static/media/slick.svg": "/teaapl/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/teaapl/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/teaapl/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "index.html": "/teaapl/index.html",
+    "static/media/slick.woff": "/teaapl/static/media/slick.295183786cd8a1389865.woff",
+    "main.40157b89.css.map": "/teaapl/static/css/main.40157b89.css.map",
+    "main.04506873.js.map": "/teaapl/static/js/main.04506873.js.map",
+    "787.94f13d48.chunk.js.map": "/teaapl/static/js/787.94f13d48.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40157b89.css",
+    "static/js/main.04506873.js"
+  ]
+}
